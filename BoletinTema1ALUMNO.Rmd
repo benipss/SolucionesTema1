@@ -189,9 +189,14 @@ Ambos conjuntos de datos presentan el mismo comportamiento, lo cual implica que 
     c.  Determina el número de librerías que tienes instaladas.
 
     ```{r}
-
-
-
+    #a)
+    libReturn <- library()
+    libReturn
+    #b)
+    head(libReturn$results, n = 5)
+    #c) 
+    length(libReturn[[2]]) 
+    #El numero de librerias que tengo es 717.
 
 
 
