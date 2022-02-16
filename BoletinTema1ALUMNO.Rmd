@@ -88,68 +88,91 @@ package.check <- lapply(packages, FUN = function(x) {
 <!-- -->
 
 a.  Mira la las características de ambos conjuntos usando la ayuda.
+
+    ```{r}
+    library(robustbase)
+    library(MASS)
+
+    dfm<- mammals
+    dfa <- Animals2
+
+    summarise(dfm)
+    ```
+
 b.  Usa las funciones **dim, head, tail, str** para una primera visión de los conjuntos de datos.
+
+    ```{r}
+    dim(dfm)
+    dim(dfa)
+    ```
+
+    ```{r}
+    head(dfm)
+    head(dfa)
+    ```
+
+    ```{r}
+    tail(dfm)
+    tail(dfa)
+    ```
+
+    ```{r}
+    str(dfm)
+    str(dfa)
+    ```
+
 c.  Muestra los nombres de las filas y las columnas (**rownames**, **colnames**)
 
-```{r}
+    ```{r}
+    rownames(dfm)
+    ```
 
+    ```{r}
+    colnames(dfm)
+    ```
 
+    ```{r}
+    rownames(dfa)
+    ```
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-```
+    ```{r}
+    colnames(dfa)
+    ```
 
 d.  Usa la función **intersect** y almacena en la variable *commonAnimals* los aminales que aparezcan en ambos conjuntos
 
-```{r}
+    ```{r}
+    commonAnimals <- intersect(dfm, dfa)
+    commonAnimals
+    ```
 
-
-
-
-
-
+```{=html}
+<!-- -->
 ```
-
 e.  Usa **setdiff** para averiguar qué animales no están en ambos conjuntos. ¿Cuántos son ?. ¿Qué tipo de animales son?
 
-```{r}
+    ```{r}
+    #Animales de dfm que no estan en dfa.
+    dif_m <- setdiff(rownames(dfm),rownames(dfa))
+    #Animales de dfa que no estan en dfm.
+    dif_a <- setdiff(rownames(dfa),rownames(dfm))
+    #La union de ambos conjuntos de animales es el conjunto de los animales que no están en ambos conjuntos.
+    dif_total <- c(dif_m, dif_a)
+    dif_total
+    #El número total de animales es:
+    length(dif_total)
 
+    ```
 
+f.  Determina las diferencias entre los animales que no aparecen en ambos conjuntos.
 
+    ```{r}
 
+    ```
 
-
+```{=html}
+<!-- -->
 ```
-
-e.  Determina las diferencia entre los animales que no aparecen en ambos conjuntos.
-
-```{r}
-
-
-
-
-
-
-
-
-
-
-
-
-```
-
 2.  La funcion **qqPlot** del paquete **car** puede ser utilizada para determinar gráficamente si una serie de puntos siguen una distribución de datos Gaussiana. Si las muestras están dentro de las líneas discontinuas podemos indicar que siguen una distribución Gaussiana con un 95 % de confianza. Utilizando esta función representa el logaritmo neperiano (**log**) del peso del cerebro (**brain weigths**) del registro de datos **mammals** del paquete **MASS** y conjunto de datos **Animals2** de la librería **robustbase**. ¿Presentan el mismo comportamiento ?.¿Podríamos decir que siguen una distribución Gaussiana ?
 
 ```{r}
