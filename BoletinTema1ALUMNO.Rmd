@@ -161,24 +161,26 @@ e.  Usa **setdiff** para averiguar qué animales no están en ambos conjuntos. �
     dif_total
     #El número total de animales es:
     length(dif_total)
+    #Parece que son una mezcla entre dinosaurios y mamiferos.
 
     ```
 
 f.  Determina las diferencias entre los animales que no aparecen en ambos conjuntos.
 
-    ```{r}
+    Las diferencias entre ambos conjuntos son que aunque algunos animales son el mismo, como no estan escritos igual la funcion setdiff no los considera diferentes
 
-    ```
-
-```{=html}
-<!-- -->
-```
 2.  La funcion **qqPlot** del paquete **car** puede ser utilizada para determinar gráficamente si una serie de puntos siguen una distribución de datos Gaussiana. Si las muestras están dentro de las líneas discontinuas podemos indicar que siguen una distribución Gaussiana con un 95 % de confianza. Utilizando esta función representa el logaritmo neperiano (**log**) del peso del cerebro (**brain weigths**) del registro de datos **mammals** del paquete **MASS** y conjunto de datos **Animals2** de la librería **robustbase**. ¿Presentan el mismo comportamiento ?.¿Podríamos decir que siguen una distribución Gaussiana ?
 
 ```{r}
+qqPlot(log(mammals$brain))
+```
 
+```{r}
+qqPlot(log(Animals2$brain))
 
 ```
+
+Ambos conjuntos de datos presentan el mismo comportamiento, lo cual implica que podríamos decir que ambos siguen una distribución Gaussiana.
 
 3.  La función **library** sin argumentos abre una ventana y muestra las librerías que han sido instaladas.
 
