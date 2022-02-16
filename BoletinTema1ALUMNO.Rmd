@@ -146,9 +146,8 @@ d.  Usa la función **intersect** y almacena en la variable *commonAnimals* los 
     commonAnimals
     ```
 
-```{=html}
 <!-- -->
-```
+
 e.  Usa **setdiff** para averiguar qué animales no están en ambos conjuntos. ¿Cuántos son ?. ¿Qué tipo de animales son?
 
     ```{r}
@@ -168,6 +167,8 @@ e.  Usa **setdiff** para averiguar qué animales no están en ambos conjuntos. �
 f.  Determina las diferencias entre los animales que no aparecen en ambos conjuntos.
 
     Las diferencias entre ambos conjuntos son que aunque algunos animales son el mismo, como no estan escritos igual la funcion setdiff no los considera diferentes
+
+<!-- -->
 
 2.  La funcion **qqPlot** del paquete **car** puede ser utilizada para determinar gráficamente si una serie de puntos siguen una distribución de datos Gaussiana. Si las muestras están dentro de las líneas discontinuas podemos indicar que siguen una distribución Gaussiana con un 95 % de confianza. Utilizando esta función representa el logaritmo neperiano (**log**) del peso del cerebro (**brain weigths**) del registro de datos **mammals** del paquete **MASS** y conjunto de datos **Animals2** de la librería **robustbase**. ¿Presentan el mismo comportamiento ?.¿Podríamos decir que siguen una distribución Gaussiana ?
 
@@ -214,31 +215,25 @@ Ambos conjuntos de datos presentan el mismo comportamiento, lo cual implica que 
     d.  Utiliza la función **summary**, sobre **cabbages** y **Chile** y observa como, además de otros estadísticos, también devuelve el número de valores perdidos de cada variable.
 
 ```{r}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+#a)
+head(cabbages)
+dim(cabbages)
+tail(cabbages)
+glimpse(cabbages)
+str(cabbages)
+#b)
+any(is.na(cabbages))
+colSums(sapply(cabbages, is.na))
+#c)
+library(car)
+head(Chile)
+dim(Chile)
+tail(Chile)
+glimpse(Chile)
+str(Chile)
+#d)
+summary(cabbages)
+summary(Chile)
 
 
 ```
@@ -246,11 +241,11 @@ Ambos conjuntos de datos presentan el mismo comportamiento, lo cual implica que 
 5.  Muchas pruebas estadísticas suponen que los datos siguen una distribución Gaussiana. Utiliza la aproximación visual proporcionada por **qqPlot** para determinar si podemos asumir que las variables **HeadWt** y **VitC** del conjunto **cabbages** verifican esta condición.
 
 ```{r}
+qqPlot(cabbages$HeadWt)
+```
 
-
-
-
-
+```{r}
+qqPlot(cabbages$VitC)
 ```
 
 6.  Una representación habitual, para determinar la distribución de los datos de una variable cuantitativa es el histograma (**hist**). Determina, de forma aproximada, utilizando el histograma, si hay diferencias entre los contenidos de vitamina C (**VitC**), para las diferentes variedades de calabaza (variable **Cult**), en el conjunto de datos **cabbages**.
